@@ -1,0 +1,79 @@
+(deflayermap meta-keys
+	esc (layer-switch default)
+	a (movemouse-accel-left 15 700 1 15)
+	s (movemouse-accel-up 15 700 1 15)
+	d (movemouse-accel-down 15 700 1 15)
+	f (movemouse-accel-right 15 700 1 15)
+	h (mwheel-left 2 2)
+	j (mwheel-down 2 2)
+	k (mwheel-up 2 2)
+	l (mwheel-right 2 2)
+	i mlft
+	o mrgt
+	p mmid
+
+
+
+
+
+;; Огромный пласт выключения всех кнопок
+	n @disable
+
+	f1 @disable
+	f2 @disable
+	f3 @disable
+	f4 @disable
+	f5 @disable
+	f6 @disable
+	f7 @disable
+	f8 @disable
+	f9 @disable
+	f10 @disable
+	f11 @disable
+	f12 @disable
+	grv @disable
+	1 @disable
+	2 @disable
+	3 @disable
+	4 @disable
+	5 @disable
+	6 @disable
+	7 @disable
+	8 @disable
+	9 @disable
+	0 @disable
+	- @disable
+	= @disable
+	bspc @disable
+;;	tab @disable
+	q @disable
+	w @disable
+	e @disable
+	r @disable
+	t @disable
+	y @disable
+	u @disable
+	[ @disable
+	] @disable
+	caps @disable
+	g @disable
+	; @disable
+	' @disable
+	ret @disable
+	lsft @disable
+	z @disable
+	x @disable
+	c @disable
+	v @disable
+	b @disable
+	m @disable
+	, @disable
+	. @disable
+	/ @disable
+	rsft @disable
+;;	lctl @disable
+	rmet @disable
+;;	lalt @disable
+	spc @disable
+
+)
