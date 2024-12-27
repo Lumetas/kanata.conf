@@ -4,7 +4,7 @@ function includeFiles($filePath) {
     if (!file_exists($filePath)) {
         return "File not found: " . $filePath;
     }
-    
+     
     // Читаем содержимое файла
     $content = file_get_contents($filePath);
     
