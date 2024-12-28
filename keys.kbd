@@ -1,0 +1,5 @@
+(include "keys/functions.kbd")
+(include "keys/letters.kbd")
+(include "keys/modificators.kbd")
+(include "keys/numbers.kbd")
+(include "keys/symbols.kbd")

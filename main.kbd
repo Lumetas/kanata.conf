@@ -1,0 +1,83 @@
+;;Раскладка клавиатуры
+(defsrc
+(include "keys.kbd")
+)
+
+;;Установка алиасов
+(defalias
+(include "alias.kbd")
+)
+
+;;Конфиг
+(defcfg
+(include "cfg.kbd")
+)
+
+;;стандартный слой
+(deflayermap default
+	caps (tap-hold 100 200 lctl lctl)
+
+	$mainkey$ (tap-dance 200 (
+	  ;;$winkey$
+	  (layer-switch twoTap)
+	  lrld
+	  (layer-switch disable)
+	))
+
+	$winkey$ (tap-dance 200 (
+		$winkey$
+		(layer-switch meta-keys)
+	))
+
+)
+
+;;Слой без именений со стандартными параметрами
+(deflayermap disable
+
+	$mainkey$ (tap-dance 200 (
+	  $mainkey$
+	  (macro $mainkey$ $mainkey$)
+	  (layer-switch default)
+	))
+
+)
+
+;;Слой для второго клика после меню
+(deflayermap twoTap
+
+	esc (layer-switch default)
+
+	n (multi (unicode "1") (unicode "q") (unicode "X") (unicode "m") (unicode "3") (unicode "4") (unicode "P") (unicode "t") (unicode "Y") (unicode "6") (unicode "9") (unicode "K") (layer-switch default)	
+)
+
+	i (multi (unicode "i") (unicode "k") (unicode "3") (unicode "4") (unicode "5") (unicode "6") (unicode "7") (unicode "8") (unicode "9") (unicode "0") (layer-switch default))
+
+	t (multi (cmd ayugram) (layer-switch default))
+;; Выключаем все кнопки кроме указанных
+	(disable_all_keys esc i n t)
+)
+
+;;Слой для доп функций на клавише meta
+(deflayermap meta-keys
+	esc (layer-switch default)
+	a (movemouse-accel-left 15 700 1 15)
+	s (movemouse-accel-up 15 700 1 15)
+	d (movemouse-accel-down 15 700 1 15)
+	f (movemouse-accel-right 15 700 1 15)
+	h (mwheel-left 2 2)
+	j (mwheel-down 2 2)
+	k (mwheel-up 2 2)
+	l (mwheel-right 2 2)
+	i mlft
+	o mrgt
+	p mmid
+
+
+
+
+
+;; Выключаем все остальные кнопки
+	(disable_all_keys esc a s d f h j k l i o p)
+
+)
+
