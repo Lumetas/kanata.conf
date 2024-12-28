@@ -47,14 +47,9 @@
 
 	esc (layer-switch default)
 
-	n (multi (unicode "1") (unicode "q") (unicode "X") (unicode "m") (unicode "3") (unicode "4") (unicode "P") (unicode "t") (unicode "Y") (unicode "6") (unicode "9") (unicode "K") (layer-switch default)	
-)
-
-	i (multi (unicode "i") (unicode "k") (unicode "3") (unicode "4") (unicode "5") (unicode "6") (unicode "7") (unicode "8") (unicode "9") (unicode "0") (layer-switch default))
-
 	t (multi (cmd ayugram) (layer-switch default))
 ;; Выключаем все кнопки кроме указанных
-	(disable_all_keys esc i n t)
+	(disable_all_keys esc t)
 )
 
 ;;Слой для доп функций на клавише meta
