@@ -26,17 +26,12 @@ danger-enable-cmd yes
 	tab (tap-hold 10 150 tab (layer-while-held vim-tab))
 
 	ralt (tap-dance 200 (
-	  ;;rmet
 	  (layer-switch twoTap)
 	  lrld
 	  (layer-switch disable)
 	))
 
-	rmet (tap-dance 200 (
-		rmet
-		(layer-switch meta-keys)
-	))
-
+;;	rmet (tap-hold 10 150 rmet (layer-while-held meta-keys))
 )
 
 ;;Слой при зажатой клавише таб
@@ -45,6 +40,10 @@ danger-enable-cmd yes
 	l right
 	j down
 	k up
+	a (mwheel-left 2 2)
+	s (mwheel-down 2 2)
+	d (mwheel-up 2 2)
+	f (mwheel-right 2 2)
 )
 
 ;;Слой без именений со стандартными параметрами
@@ -132,85 +131,3 @@ spc @disable
 rmet @disable
 ralt @disable
 )
-
-
-;;Слой для доп функций на клавише meta
-(deflayermap meta-keys
-	esc (layer-switch default)
-	a (movemouse-accel-left 15 700 1 15)
-	s (movemouse-accel-up 15 700 1 15)
-	d (movemouse-accel-down 15 700 1 15)
-	f (movemouse-accel-right 15 700 1 15)
-	h (mwheel-left 2 2)
-	j (mwheel-down 2 2)
-	k (mwheel-up 2 2)
-	l (mwheel-right 2 2)
-	i mlft
-	o mrgt
-	p mmid
-
-
-
-
-
-;; Выключаем все остальные кнопки
-	f1 @disable
-f2 @disable
-f3 @disable
-f4 @disable
-f5 @disable
-f6 @disable
-f7 @disable
-f8 @disable
-f9 @disable
-f10 @disable
-f11 @disable
-f12 @disable
-grv @disable
-1 @disable
-2 @disable
-3 @disable
-4 @disable
-5 @disable
-6 @disable
-7 @disable
-8 @disable
-9 @disable
-- @disable
-= @disable
-bspc @disable
-tab @disable
-q @disable
-w @disable
-e @disable
-r @disable
-t @disable
-y @disable
-u @disable
-[ @disable
-] @disable
-\ @disable
-caps @disable
-g @disable
-; @disable
-' @disable
-ret @disable
-lsft @disable
-z @disable
-x @disable
-c @disable
-v @disable
-b @disable
-n @disable
-m @disable
-. @disable
-/ @disable
-rsft @disable
-lctl @disable
-lalt @disable
-spc @disable
-rmet @disable
-ralt @disable
-
-)
-

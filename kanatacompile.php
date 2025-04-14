@@ -147,6 +147,10 @@ function disable_all_keys_callback($arr){
 $filePath = $argv[1];
 $content = file_get_contents($filePath);
 
+if (isset($argv[2]) && isset($argv[3])){
+    $content = str_replace(explode(" ", $argv[2]), explode(" ", $argv[3]), $content);
+}
+
 while (containsIncludes($content)){
     $content = includeFromString($content);
 }
@@ -154,10 +158,6 @@ $keys = parseKeysFromContent($content);
 $content = disable_keys($content, "disable_keys_callback");
 $content = disable_all_keys($content, "disable_all_keys_callback");
 
-if (isset($argv[2]) && isset($argv[3])){
-    $content = str_replace(explode(" ", $argv[2]), explode(" ", $argv[3]), $content);
-
-}
 
 
 file_put_contents("kanata.kbd", $content);
