@@ -1,7 +1,5 @@
 ;;Раскладка клавиатуры
-(defsrc
 (include "keys.kbd")
-)
 
 ;;Установка алиасов
 (defalias
@@ -15,7 +13,8 @@
 
 ;;стандартный слой
 (deflayermap default
-	caps (tap-hold 100 200 lctl lctl)
+	caps lctl
+	tab (tap-hold 10 150 tab (layer-while-held vim-tab))
 
 	$mainkey$ (tap-dance 200 (
 	  ;;$winkey$
@@ -29,6 +28,14 @@
 		(layer-switch meta-keys)
 	))
 
+)
+
+;;Слой при зажатой клавише таб
+(deflayermap vim-tab
+	h left
+	l right
+	j down
+	k up
 )
 
 ;;Слой без именений со стандартными параметрами
@@ -48,9 +55,9 @@
 	esc (layer-switch default)
 
 	t (multi (cmd ayugram) (layer-switch default))
-;; Выключаем все кнопки кроме указанных
 	(disable_all_keys esc t)
 )
+
 
 ;;Слой для доп функций на клавише meta
 (deflayermap meta-keys
