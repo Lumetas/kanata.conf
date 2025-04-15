@@ -1,4 +1,5 @@
 <?php
+chdir(__DIR__);
 function includeFromString($content) {
     // Регулярное выражение для поиска строк вида (include "file.kbd"),
     // которые не предшествуют ;;
@@ -142,14 +143,14 @@ function disable_all_keys_callback($arr){
     return implode("\n", $result);
 }
 
+$arr = require "config.php";
 
 // Пример использования
-$filePath = $argv[1];
+$filePath = $arr['inputFile'];
 $content = file_get_contents($filePath);
 
-if (isset($argv[2]) && isset($argv[3])){
-    $content = str_replace(explode(" ", $argv[2]), explode(" ", $argv[3]), $content);
-}
+$content = str_replace(array_keys($arr), array_values($arr), $content);
+$content = str_replace(["%curdir%"], [__DIR__], $content);
 
 while (containsIncludes($content)){
     $content = includeFromString($content);
@@ -158,6 +159,4 @@ $keys = parseKeysFromContent($content);
 $content = disable_keys($content, "disable_keys_callback");
 $content = disable_all_keys($content, "disable_all_keys_callback");
 
-
-
-file_put_contents("kanata.kbd", $content);
+file_put_contents($arr['outputFile'], $content);
